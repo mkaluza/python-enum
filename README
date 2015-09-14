@@ -1,0 +1,42 @@
+>>> class ABC(Enum):
+...         a = 1
+...         b = 2
+...         c = 3
+...
+>>> class DEF(Enum):
+...         _members_ = ['D', 'F', 'E']
+...
+>>> print ABC
+<Enum ABC: ['a', 'c', 'b']>
+>>> 
+>>> print ABC(2)
+<Enum [c_uint] ABC: ['a', 'c', 'b'] = 2 (b)>
+>>> 
+>>> print ABC('a')
+<Enum [c_uint] ABC: ['a', 'c', 'b'] = 1 (a)>
+>>> 
+>>> print "a =", a
+a = 1
+>>> 
+>>> print "E =", E
+E = 2
+>>>
+>>> print "DEF.F = ", DEF.F
+DEF.F =  1
+>>>
+>>> print DEF(1)
+<Enum [c_uint] DEF: ['E', 'D', 'F'] = 1 (F)>
+>>>
+>>> print DEF('E')
+<Enum [c_uint] DEF: ['E', 'D', 'F'] = 2 (E)>
+>>>
+>>> import ctypes
+>>> class A(EnumFactory(ctypes.c_uint8))
+...  x=1
+...  y=2
+...
+>>> print A
+<Enum A: ['y', 'x']>
+>>> print A(1)
+<Enum [c_ubyte] A: ['y', 'x'] = 1 (x)>
+>>>
